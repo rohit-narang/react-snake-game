@@ -17,13 +17,11 @@ const intialState = {
 }
 
 class App extends Component {
-  constructor(){
-    super();
-    
-    this.state = intialState;
-    
+  constructor(props){
+    super(props);
+    this.state = intialState;  
   }
-  componentDidMount (){
+  componentDidMount = () => {
     setInterval(this.moveSnake, this.state.speed);
     document.onkeydown = this.onkeydown;
   }
@@ -81,7 +79,7 @@ class App extends Component {
     }
   }
 
-  moveSnake = ()=>{
+  moveSnake = () => {
     let dots = [...this.state.snakeDots];
     let head = dots[dots.length -1];
     switch(this.state.direction){
